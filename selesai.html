@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Status Pesanan Saya</title>
+    <style>
+      /* === CSS dari style.css (digabung ke sini) === */
+      .frame {
+        display: inline-flex;
+        flex-direction: column;
+        height: 1008px;
+        align-items: flex-start;
+        position: relative;
+        background-color: #ffffff;
+        border: 2px solid;
+        border-color: #ced4da;
+      }
+
+      .frame .body {
+        position: relative;
+        width: 375px;
+        height: 812px;
+        background-color: #f9fafb;
+        border: 0px none;
+      }
+
+      .frame .div {
+        height: 812px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border: 0px none;
+      }
+
+      .frame .header {
+        width: 375px;
+        height: 61px;
+        display: flex;
+        gap: 75px;
+        background-color: #ffffff;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-left-style: none;
+        border-color: #f3f4f6;
+      }
+
+      .frame .button {
+        margin-top: 16px;
+        width: 17.5px;
+        height: 28px;
+        margin-left: 20px;
+        display: flex;
+        border: 0px none;
+        background: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      .frame .i {
+        margin-top: 2px;
+        width: 17.5px;
+        height: 24px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .svg {
+        margin-top: 1.5px;
+        width: 17.5px;
+        height: 20px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .frame .vector-wrapper {
+        width: 17.5px;
+        height: 20px;
+        position: relative;
+        border: 0px none;
+      }
+
+      .frame .vector {
+        position: absolute;
+        width: 99.99%;
+        height: 75.03%;
+        top: 12.49%;
+        left: 0;
+      }
+
+      .frame .h {
+        margin-top: 16px;
+        width: 183.98px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper {
+        margin-top: 3px;
+        width: 185px;
+        height: 28px;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #111827;
+        font-size: 18px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .section {
+        width: 375px;
+        height: 76px;
+        background-color: #ffffff;
+        box-shadow: 0px 1px 2px #0000000d;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .div-2 {
+        margin-top: 16px;
+        width: 343px;
+        margin-left: 16px;
+        display: flex;
+        gap: 12px;
+        border: 0px none;
+      }
+
+      .frame .div-wrapper {
+        all: unset;
+        box-sizing: border-box;
+        width: 165.5px;
+        height: 44px;
+        background-color: #f3f4f6;
+        border-radius: 9999px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper-2 {
+        margin-top: 13px;
+        width: 166px;
+        height: 20px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #4b5563;
+        font-size: 14px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .button-2 {
+        all: unset;
+        box-sizing: border-box;
+        width: 165.5px;
+        height: 44px;
+        background-color: #f0c419;
+        border-radius: 9999px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper-3 {
+        margin-top: 13px;
+        width: 166px;
+        height: 20px;
+        color: #1a2332;
+        font-size: 14px;
+        text-align: center;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .main {
+        width: 375px;
+        height: 632px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 196px;
+        border: 0px none;
+      }
+
+      .frame .div-3 {
+        margin-left: 16px;
+        width: 343px;
+        height: 184px;
+        margin-top: 7px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 16px;
+        border: 1px solid;
+        border-color: #f3f4f6;
+        box-shadow: 0px 1px 2px #0000000d;
+      }
+
+      .frame .div-4 {
+        margin-left: 17px;
+        width: 309px;
+        margin-top: 17px;
+        display: flex;
+        gap: 125.9px;
+        border: 0px none;
+      }
+
+      .frame .div-5 {
+        width: 171.83px;
+        display: flex;
+        gap: 12px;
+        border: 0px none;
+      }
+
+      .frame .i-wrapper {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        background-color: #f0c41933;
+        border-radius: 9999px;
+        border: 0px none;
+      }
+
+      .frame .svg-wrapper {
+        margin-top: 6px;
+        width: 13.5px;
+        height: 28px;
+        margin-left: 13.2px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .frame-wrapper {
+        margin-top: 4.2px;
+        width: 13.5px;
+        height: 18px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .frame .div-6 {
+        width: 13.5px;
+        height: 18px;
+        background-image: url(./img/vector-6.svg);
+        background-size: 100% 100%;
+        position: relative;
+        border: 0px none;
+      }
+
+      .frame .div-7 {
+        width: 119.83px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper-4 {
+        width: 122px;
+        height: 24px;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #1a2332;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+      }
+
+      .frame .text-wrapper-5 {
+        width: 120px;
+        height: 16px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #6b7280;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: 16px;
+        white-space: nowrap;
+      }
+
+      .frame .button-3 {
+        width: 11.25px;
+        height: 28px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .i-2 {
+        margin-top: 3px;
+        width: 11.25px;
+        height: 21px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .svg-2 {
+        margin-top: 1.2px;
+        width: 11.25px;
+        height: 18px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .frame .img-wrapper {
+        width: 11.25px;
+        height: 18px;
+        position: relative;
+        border: 0px none;
+      }
+
+      .frame .img {
+        position: absolute;
+        width: 80.02%;
+        height: 87.53%;
+        top: 6.23%;
+        left: 19.98%;
+      }
+
+      .frame .p-wrapper {
+        margin-left: 17px;
+        width: 309px;
+        height: 44px;
+        margin-top: 12px;
+        display: flex;
+        background-color: #f9fafb;
+        border-radius: 12px;
+        border: 0px none;
+      }
+
+      .frame .p {
+        margin-top: 12px;
+        width: 285px;
+        margin-left: 12px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper-6 {
+        margin-top: 1px;
+        width: 285px;
+        height: 20px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #1a2332;
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .div-8 {
+        margin-left: 17px;
+        width: 309px;
+        margin-top: 12px;
+        display: flex;
+        gap: 134.3px;
+        border: 0px none;
+      }
+
+      .frame .span-wrapper {
+        margin-top: 6px;
+        width: 103px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .span {
+        width: 99px;
+        background-color: #fef2f2;
+        height: 28px;
+        display: flex;
+        gap: 6px;
+        border-radius: 9999px;
+        border: 0px none;
+      }
+
+      .frame .i-3 {
+        margin-top: 6px;
+        width: 10px;
+        height: 16px;
+        margin-left: 12px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .vector-2 {
+        margin-top: 3.2px;
+        width: 10px;
+        height: 10px;
+      }
+
+      .frame .text-wrapper-7 {
+        margin-top: 6px;
+        width: 122px;
+        height: 16px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #ef4444;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .div-9 {
+        width: 71.72px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        border: 0px none;
+      }
+
+      .frame .text-wrapper-8 {
+        width: 72px;
+        height: 16px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #6b7280;
+        font-size: 12px;
+        text-align: right;
+        letter-spacing: 0;
+        line-height: 16px;
+        white-space: nowrap;
+      }
+
+      .frame .text-wrapper-9 {
+        width: 72px;
+        height: 24px;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #1a2332;
+        font-size: 16px;
+        text-align: right;
+        letter-spacing: 0;
+        line-height: 24px;
+        white-space: nowrap;
+      }
+
+      .frame .div-10 {
+        height: 184px;
+        margin-top: 29px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        border: 1px solid;
+        border-color: #f3f4f6;
+        box-shadow: 0px 1px 2px #0000000d;
+      }
+
+      .frame .div-11 {
+        width: 13.5px;
+        height: 18px;
+        background-image: url(./img/image.svg);
+        background-size: 100% 100%;
+        position: relative;
+        border: 0px none;
+      }
+
+      .frame .div-12 {
+        margin-left: 17px;
+        width: 309px;
+        height: 44px;
+        display: flex;
+        background-color: #f9fafb;
+        border-radius: 12px;
+        border: 0px none;
+      }
+
+      .frame .div-13 {
+        margin-left: 17px;
+        width: 309px;
+        display: flex;
+        gap: 93.1px;
+        border: 0px none;
+      }
+
+      .frame .div-14 {
+        margin-top: 6px;
+        width: 144.14px;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .span-2 {
+        width: 84px;
+        background-color: #dcfce7;
+        height: 28px;
+        display: flex;
+        gap: 6px;
+        border-radius: 9999px;
+        border: 0px none;
+      }
+
+      .frame .svg-3 {
+        margin-top: 3.2px;
+        width: 10px;
+        height: 10px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .frame .vector-3 {
+        position: relative;
+        width: 10px;
+        height: 10px;
+      }
+
+      .frame .text-wrapper-10 {
+        margin-top: 6px;
+        width: 122px;
+        height: 16px;
+        color: #22c55e;
+        font-size: 12px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .frame .section-2 {
+        height: 464px;
+        flex-direction: column;
+        display: flex;
+        border: 0px none;
+      }
+
+      .frame .div-15 {
+        margin-left: 107.5px;
+        width: 160px;
+        height: 160px;
+        margin-top: 48px;
+      }
+
+      .frame .text-wrapper-11 {
+        margin-left: 53.5px;
+        width: 269px;
+        height: 28px;
+        margin-top: 24px;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #1f2937;
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: 28px;
+        white-space: nowrap;
+      }
+
+      .frame .text-wrapper-12 {
+        margin-left: 16px;
+        width: 343px;
+        height: 60px;
+        margin-top: 8px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #6b7280;
+        font-size: 14px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+
+      .frame .button-4 {
+        all: unset;
+        box-sizing: border-box;
+        margin-left: 16px;
+        width: 343px;
+        height: 56px;
+        margin-top: 32px;
+        background-color: #ffc107;
+        border-radius: 12px;
+        box-shadow: 0px 4px 6px #0000001a, 0px 2px 4px #0000001a;
+        display: flex;
+        border: 0px none;
+        cursor: pointer;
+      }
+
+      .frame .text-wrapper-13 {
+        margin-top: 18px;
+        width: 343px;
+        height: 24px;
+        font-family: "Inter-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #1f2937;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <main class="body">
+        <div class="div">
+          <header class="header">
+            <button class="button" aria-label="Kembali" onclick="history.back()">
+              <span class="i">
+                <span class="svg">
+                  <span class="vector-wrapper"><img class="vector" src="./assets/kembali.svg" alt="" /></span>
+                </span>
+              </span>
+            </button>
+            <h1 class="h"><span class="text-wrapper">Status Pesanan Saya</span></h1>
+          </header>
+          <nav class="section" aria-label="Filter status pesanan">
+            <div class="div-2">
+              <button class="div-wrapper" aria-pressed="false" onclick="window.location.href='status.html'">
+                <span class="text-wrapper-2">Sedang Diproses</span>
+              </button>
+              <button class="button-2" aria-pressed="true">
+                <span class="text-wrapper-3">Selesai</span>
+              </button>
+            </div>
+          </nav>
+          <section class="main">
+            <div class="div-3">
+              <article class="div-4" onclick="window.location.href='batal.html'">
+                <div class="div-5">
+                  <span class="i-wrapper" aria-hidden="true">
+                    <span class="svg-wrapper">
+                      <span class="frame-wrapper"><span class="div-6"></span></span>
+                    </span>
+                  </span>
+                  <div class="div-7">
+                    <h2 class="text-wrapper-4">Pesanan #0510</h2>
+                    <p class="text-wrapper-5">Dipesan 15 menit lalu</p>
+                  </div>
+                </div>
+                <button class="button-3" aria-label="Lihat detail pesanan">
+                  <span class="i-2">
+                    <span class="svg-2">
+                      <span class="img-wrapper"><img class="img" src="img/vector-4.svg" alt="" /></span>
+                    </span>
+                  </span>
+                </button>
+              </article>
+              <div class="p-wrapper">
+                <p class="p"><span class="text-wrapper-6">1x Jus Alpukat</span></p>
+              </div>
+              <div class="div-8">
+                <div class="span-wrapper">
+                  <span class="span">
+                    <span class="i-3" aria-hidden="true"><img class="vector-2" src="img/vector.svg" alt="" /></span>
+                    <span class="text-wrapper-7">Dibatalkan</span>
+                  </span>
+                </div>
+                <div class="div-9">
+                  <span class="text-wrapper-8">Total</span>
+                  <span class="text-wrapper-9">Rp 8.000</span>
+                </div>
+              </div>
+              <article class="div-10">
+                <div class="div-4">
+                  <div class="div-5">
+                    <span class="i-wrapper" aria-hidden="true">
+                      <span class="svg-wrapper">
+                        <span class="frame-wrapper"><span class="div-11"></span></span>
+                      </span>
+                    </span>
+                    <div class="div-7">
+                      <h2 class="text-wrapper-4">Pesanan #0510</h2>
+                      <p class="text-wrapper-5">Dipesan 15 menit lalu</p>
+                    </div>
+                  </div>
+                  <button class="button-3" aria-label="Lihat detail pesanan">
+                    <span class="i-2">
+                      <span class="svg-2">
+                        <span class="img-wrapper"><img class="img" src="img/vector-2.svg" alt="" /></span>
+                      </span>
+                    </span>
+                  </button>
+                </div>
+                <div class="div-12">
+                  <p class="p"><span class="text-wrapper-6">1x Es Beng Beng, 1x Es Teh Manis</span></p>
+                </div>
+                <div class="div-13">
+                  <div class="div-14">
+                    <span class="span-2">
+                      <span class="i-3" aria-hidden="true">
+                        <span class="svg-3"><img class="vector-3" src="img/vector-3.svg" alt="" /></span>
+                      </span>
+                      <span class="text-wrapper-10">Selesai</span>
+                    </span>
+                  </div>
+                  <div class="div-9">
+                    <span class="text-wrapper-8">Total</span>
+                    <span class="text-wrapper-9">Rp 8.000</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <section class="section-2">
+              <img class="div-15" src="./assets/Bintang.svg" alt="Ilustrasi bintang" />
+              <h2 class="text-wrapper-11">Gimana Rasa Makanannya?</h2>
+              <p class="text-wrapper-12">
+                Ceritakan pengalamanmu atau temukan menu favorit lainnya untuk pesanan berikutnya.
+              </p>
+              <button class="button-4" onclick="window.location.href='home.html'"><span class="text-wrapper-13">Lihat Menu Rekomendasi</span></button>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

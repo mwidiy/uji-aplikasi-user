@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Beri Masukan</title>
+    <style>
+        :root {
+            --bg-page: #F3F4F6;
+            --bg-card: #FFFFFF;
+            --text-main: #111827;
+            --text-sub: #6B7280;
+            --text-dark: #374151;
+            --primary-yellow: #F7DC6F;
+            --chip-bg: #FFFFFF;
+            --chip-outline: #E5E7EB;
+            --header-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            --bottom-shadow: 0 10px 15px rgba(0,0,0,0.10);
+        }
+
+        * {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+        }
+
+        body {
+            min-height:100vh;
+            background:#FFFFFF;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+        }
+
+        .app {
+            width:100%;
+            max-width:414px;
+            min-height:100vh;
+            background:#FFFFFF;
+            border-radius:8px;
+            outline:2px solid #CED4DA;
+            outline-offset:-2px;
+            overflow:hidden;
+        }
+
+        .page {
+            background:var(--bg-page);
+            min-height:812px;
+            position:relative;
+            padding-bottom:88px; /* ruang untuk bottom bar */
+        }
+
+        /* HEADER */
+        .header {
+            height:60px;
+            background:#FFFFFF;
+            box-shadow:var(--header-shadow);
+            display:flex;
+            align-items:center;
+            justify-content:center; /* judul benar-benar di tengah */
+            position:sticky;
+            top:0;
+            z-index:10;
+            padding:0 16px;
+        }
+        .header-back {
+            position:absolute;
+            left:16px;
+            width:32px;
+            height:32px;
+            border-radius:999px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+        }
+        /* ganti span jadi img untuk back */
+        .header-back img {
+            width:20px;
+            height:20px;
+            object-fit:contain;
+            display:block;
+        }
+        .header-title {
+            font-size:18px;
+            font-weight:700;
+            color:#1F2937;
+        }
+
+        .content {
+            padding:24px 16px 0;
+        }
+
+        /* JUDUL & SUBTITLE */
+        .intro-title {
+            font-size:24px;
+            font-weight:700;
+            color:var(--text-main);
+            line-height:32px;
+            margin-bottom:4px;
+        }
+        .intro-subtitle {
+            font-size:14px;
+            color:var(--text-sub);
+            line-height:20px;
+            margin-bottom:16px;
+        }
+
+        /* JENIS MASUKAN */
+        .section-label {
+            font-size:14px;
+            font-weight:600;
+            color:var(--text-dark);
+            margin-bottom:8px;
+        }
+        .chips-grid {
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+            margin-bottom:24px;
+        }
+        .chip {
+            min-height:42px;
+            padding:0 16px;
+            background:var(--chip-bg);
+            border-radius:9999px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:14px;
+            font-weight:500;
+            color:#374151;
+            border:1px solid var(--chip-outline);
+            box-shadow:0 1px 2px rgba(0,0,0,0.05);
+            cursor:pointer;
+            white-space:nowrap;
+        }
+        .chip.primary {
+            background:var(--primary-yellow);
+            border-color:var(--chip-outline);
+            box-shadow:none;
+        }
+        .chip.strong {
+            font-weight:600;
+            color:#2C3E50;
+        }
+
+        /* KARTU MASUKAN */
+        .feedback-card {
+            background:#FFFFFF;
+            border-radius:24px;
+            box-shadow:0 1px 2px rgba(0,0,0,0.05);
+            padding:20px;
+            margin-bottom:16px;
+        }
+        .feedback-title {
+            font-size:14px;
+            font-weight:600;
+            color:var(--text-dark);
+            margin-bottom:12px;
+        }
+        .feedback-textarea-wrap {
+            background:#F3F4F6;
+            border-radius:16px;
+            padding:12px 16px;
+            min-height:120px;
+            display:flex;
+            align-items:flex-start;
+        }
+        .feedback-textarea {
+            width:100%;
+            border:none;
+            background:transparent;
+            resize:none;
+            outline:none;
+            font-size:14px;
+            color:var(--text-main);
+        }
+        .feedback-placeholder {
+            font-size:14px;
+            color:#ADAEBC;
+            line-height:20px;
+        }
+
+        /* KARTU LAMPIRKAN SCREENSHOT */
+        .attachment-card {
+            margin-top:18px;
+            background:#FFFFFF;
+            border-radius:16px;
+            box-shadow:0 1px 2px rgba(0,0,0,0.05);
+            border:1px solid #E5E7EB;
+            padding:16px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:12px;
+        }
+        /* icon sekarang img, bukan kotak warna */
+        .attachment-icon {
+            width:20px;
+            height:20px;
+            flex-shrink:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .attachment-icon img {
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            display:block;
+        }
+        .attachment-text {
+            font-size:14px;
+            font-weight:600;
+            color:#374151;
+            text-align:center;
+        }
+
+        /* BOTTOM BAR */
+        .bottom-bar {
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            height:88px;
+            background:#FFFFFF;
+            box-shadow:var(--bottom-shadow);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:0 16px;
+        }
+        .submit-btn {
+            width:100%;
+            max-width:343px;
+            height:56px;
+            border-radius:16px;
+            border:none;
+            background:var(--primary-yellow);
+            box-shadow:0 4px 6px rgba(0,0,0,0.10);
+            font-size:16px;
+            font-weight:700;
+            color:#2C3E50;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="page">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-back" onclick="window.history.back()">
+                <!-- ganti src dengan icon back milikmu -->
+                <img src="./assets/kembali.svg" alt="Kembali">
+            </div>
+            <!-- judul di tengah & teks baru -->
+            <h1 class="header-title">Saran Untuk Developer</h1>
+        </header>
+
+        <!-- Content -->
+        <main class="content">
+            <section>
+                <h2 class="intro-title">Punya ide atau keluhan?</h2>
+                <p class="intro-subtitle">
+                    Bantu kami membuat 'Meja Pesan' jadi lebih baik!
+                </p>
+            </section>
+
+            <section>
+                <div class="section-label">Apa jenis masukan Anda?</div>
+                <div class="chips-grid">
+                    <button class="chip strong">💡 Saran Fitur</button>
+                    <button class="chip primary">🐞 Laporan Bug</button>
+                    <button class="chip">🎨 Desain/Tampilan</button>
+                    <button class="chip">❓ Lainnya</button>
+                </div>
+            </section>
+
+            <section class="feedback-card">
+                <div class="feedback-title">Tuliskan masukan Anda di sini</div>
+                <div class="feedback-textarea-wrap">
+                    <!-- bisa diganti textarea beneran jika ingin input -->
+                    <textarea class="feedback-textarea" placeholder="Saya punya ide keren agar aplikasi ini bisa..."></textarea>
+                </div>
+            </section>
+
+            <section>
+                <div class="attachment-card">
+                    <div class="attachment-icon">
+                        <!-- ganti src dengan icon lampiran screenshot milikmu -->
+                        <img src="./assets/Insert_File.svg" alt="Lampirkan Screenshot">
+                    </div>
+                    <div class="attachment-text">Lampirkan Screenshot (Opsional)</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom action -->
+        <div class="bottom-bar">
+            <button class="submit-btn">Kirim Masukan</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Di sini nanti bisa ditambah logic: kirim masukan ke server, validasi, dsb.
+</script>
+</body>
+</html>
